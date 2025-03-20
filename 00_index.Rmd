@@ -1,0 +1,58 @@
+--- 
+title: "FBS consolidation process"
+author: "Author: Riccardo Giubilei"
+date: ""
+site: bookdown::bookdown_site
+header-includes:
+- \usepackage{caption}
+
+output:
+  bookdown::html_document2:
+    theme: null
+    highlight: null
+    css: style.css
+latex_engine: tinytex
+documentclass: book
+url: https://github.com/SWS-Methodology/FbsConsolidation
+favicon: ./images/FAO_logo.svg.ico
+cover-image: ./images/FAO_logo.svg.png
+description: "This is the documentation for the FBS Consolidation process."
+github-repo: https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation
+---
+
+# Introduction
+
+This document describes the Food Balance Sheets (FBS) consolidation process and how it is performed using the *fbs_consolidation* plugin within the Statistical Working System (SWS) of the Food and Agricultural Organization of the United Nations (FAO).
+
+
+## Food Balance Sheets data
+
+The Food Balance Sheets provide a comprehensive overview of a country's food supply during a given reference period. It details the sources and utilization of each food item, including primary commodities and processed products available for human consumption.
+
+On the supply side, the total quantity of food produced domestically, combined with imports and adjusted for stock changes, determines the available supply. On the utilization side, the FBS accounts for exports, livestock feed, seed use, industrial processing (for both food and non-food purposes), storage and transportation losses, and food available for human consumption.
+
+The per-capita availability of each food item for human consumption is derived by dividing the total quantity by the relevant population. These figures are expressed in terms of quantity and, using appropriate food composition factors, in caloric value, as well as protein and fat content.
+
+The Food Balance Sheets are compiled annually by FAO, primarily using country-level data on food commodity production and trade. These data, along with information on seed rates, waste coefficients, stock changes, and various utilization types (including food, feed, processing, and other uses), are used to construct a supply/utilization account for each commodity in weight terms.
+
+The food component of this account - typically derived as a balancing item - represents the total quantity of a commodity available for human consumption during the year. In addition to commodity-specific details, the FAO FBS data provide estimates of total food availability by aggregating the food component of all commodities, including fishery products.
+
+Using these values and population estimates, per-capita supplies of dietary energy, protein, and fat are calculated and expressed per day. In the FBS, production data refer exclusively to primary products, while all other elements also account for processed products, expressed in terms of their primary commodity equivalent.
+
+
+## Goal of the consolidation process
+
+The goal of the FBS consolidation process is consolidating and standardizing FBS data coming from all relevant sources into the Statistical Working System^[Prior to the FBS consolidation process, the integration of these two data sources used to occur within FAOSTAT, which has served as the primary reference for replicating the process in SWS.].
+
+FBS data is produced by two teams:\
+- the *Crops, Livestocks, and Food Statistics* (CLFS) team of the *Statistics division* (ESS).\
+- the *Fisheries and Aquaculture Statistics* (NFISS) team of the *Fisheries division* (NFI).\
+
+
+
+## Summary
+
+The structure of this document as follows. Chapter \@ref(InputOutput) provides a detailed description of the input and output objects used by the *fbs_consolidation*. Chapter \@ref(Plugin) focuses on the plugin itself, explaining the purpose and functioning of its input parameters, as well as the overall workflow it follows. Finally, Chapter \@ref(RunPlugin) offers practical guidance on how to execute the plugin.
+
+
+

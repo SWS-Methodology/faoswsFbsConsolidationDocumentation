@@ -34,7 +34,7 @@ p {
   padding-right: 2px;
   padding-top: 2px;
   color: #FFFFFF;
-  background: #1e81b0;
+  background: #4574a1;
   font-size: 11pt;
   font-style: normal;
   font-weight: normal;
@@ -78,7 +78,7 @@ p {
 }
 
 h1, h2 {
-  border-bottom: 2px solid #1e81b0;
+  border-bottom: 2px solid #5793c9;
 }
 
 h1, h2, h3, h4 {
@@ -151,7 +151,7 @@ ol {
 }
 
 .book .book-summary {
-  background-color: #186218;
+  background-color: #5793c9;
 }
 
 .summary a:hover {
@@ -232,3 +232,55 @@ color: #b2c2d2; /* darker color when hovering
 text-decoration: none;
 }
 */
+
+.note {
+  border-left: 4px solid #007acc;
+  background-color: #f1f8ff;
+  padding: 10px 15px;
+  margin: 10px 0;
+  line-height: 1.4;  
+}
+
+.tip {
+  border-left: 4px solid #28a745;
+  background-color: #e6ffed;
+  padding: 10px 15px;
+  margin: 10px 0;
+  line-height: 1.4;  
+}
+
+.warning {
+  border-left: 4px solid #d73a49;
+  background-color: #ffeef0;
+  padding: 10px 15px;
+  margin: 10px 0;
+  line-height: 1.4; 
+}
+
+.note p, .tip p, .warning p {
+  margin-bottom: 0px;
+}
+
+.note::before {
+  content: "✍ Note: ";
+  font-weight: bold;
+  display: block;
+  color: #007acc; 
+  margin-bottom: 5px;
+}
+
+.tip::before {
+  content: "💡Tip: ";
+  font-weight: bold;
+  display: block;
+  color: #28a745; 
+  margin-bottom: 5px;
+}
+
+.warning::before {
+  content: "⚠️ Warning: ";
+  font-weight: bold;
+  display: block;
+  color: #d73a49; 
+  margin-bottom: 5px;
+}

@@ -29,3 +29,17 @@ btd-plugin
 tot
 imc-emc-plugin
 rca-plugin
+goal-of-the-consolidation-process
+input_output
+input-and-output-list
+tab:quantities
+eq:idr
+eq:ssr
+eq:sae
+eq:btdimp
+eq:btdexp
+eq:ato
+eq:tot
+eq:imc
+eq:emc
+eq:rca

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Input and output | 01_input_output.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Input and output | 01_input_output.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Input and output | 01_input_output.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#input_output"><i class="fa fa-check"></i><b>1</b> Input and output</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#input-datatables"><i class="fa fa-check"></i><b>1.1</b> Input datatables</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path=""><a href="#fbs-consolidated-area-aggregates"><i class="fa fa-check"></i><b>1.1.1</b> FBS Consolidated Area Aggregates</a></li>
+<li class="chapter" data-level="1.1.2" data-path=""><a href="#fbs-consolidated-elements"><i class="fa fa-check"></i><b>1.1.2</b> FBS Consolidated Elements</a></li>
+<li class="chapter" data-level="1.1.3" data-path=""><a href="#fbs-consolidated-exceptions"><i class="fa fa-check"></i><b>1.1.3</b> FBS Consolidated Exceptions</a></li>
+<li class="chapter" data-level="1.1.4" data-path=""><a href="#fbs-consolidated-code-mapping"><i class="fa fa-check"></i><b>1.1.4</b> FBS Consolidated Code Mapping</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#input-codelists"><i class="fa fa-check"></i><b>1.2</b> Input codelists</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path=""><a href="#geographicaream49"><i class="fa fa-check"></i><b>1.2.1</b> geographicAreaM49</a></li>
+<li class="chapter" data-level="1.2.2" data-path=""><a href="#measureditemfbssua"><i class="fa fa-check"></i><b>1.2.2</b> measuredItemFbsSua</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#input-datasets"><i class="fa fa-check"></i><b>1.3</b> Input datasets</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path=""><a href="#fbs_balanced_"><i class="fa fa-check"></i><b>1.3.1</b> fbs_balanced_</a></li>
+<li class="chapter" data-level="1.3.2" data-path=""><a href="#fi_fbs_faostat_validated"><i class="fa fa-check"></i><b>1.3.2</b> fi_fbs_faostat_validated</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#output-datatable"><i class="fa fa-check"></i><b>1.4</b> Output datatable</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path=""><a href="#fbs-consolidated-logs"><i class="fa fa-check"></i><b>1.4.1</b> FBS Consolidated Logs</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path=""><a href="#output-datasets"><i class="fa fa-check"></i><b>1.5</b> Output datasets</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path=""><a href="#fbs-consolidated"><i class="fa fa-check"></i><b>1.5.1</b> FBS Consolidated</a></li>
+<li class="chapter" data-level="1.5.2" data-path=""><a href="#fbs-sofi"><i class="fa fa-check"></i><b>1.5.2</b> FBS SOFI</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="input_output" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Input and output<a href="#input_output" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Four input datatables:<br />
+- <em>fbs_consolidated_area_aggregates</em> in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_consolidated_elements</em> in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_consolidated_exceptions</em> in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_consolidated_code_mapping</em> in the <em>Disseminated Datasets</em> domain.<br />
+</p>
+<p>Two input codelists:<br />
+- <em>geographicAreaM49</em>.<br />
+- <em>measuredItemFbsSua</em>.<br />
+</p>
+<p>Two input datasets:<br />
+- <em>fbs_balanced_</em> in the <em>SUA/FBS Domain</em> (CLFS team).<br />
+- <em>fi_fbs_faostat_validated</em> in the <em>Fisheries Commodities</em> domain (NFISS team).<br />
+</p>
+<p>One output datatable:<br />
+- <em>fbs_consolidated_logs</em> in the <em>Disseminated Datasets</em> domain.<br />
+</p>
+<p>Two output datasets:<br />
+- <em>fbs_consolidated</em> in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_sofi</em> in the <em>Food Security</em> domain.<br />
+</p>
+<ol style="list-style-type: decimal">
+<li>Turn into text.</li>
+<li>Create diagram.</li>
+<li>Describe each in detail.</li>
+</ol>
+<div id="input-datatables" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Input datatables<a href="#input-datatables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="fbs-consolidated-area-aggregates" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> FBS Consolidated Area Aggregates<a href="#fbs-consolidated-area-aggregates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="float">
+<img src="images/fbs_consolidation_area_aggregates.png" alt=" Figure 1.1. Datatable presenting the list of area aggregates to be included in the FBS consolidation process." />
+<div class="figcaption"> Figure 1.1. Datatable presenting the list of area aggregates to be included in the FBS consolidation process.</div>
+</div>
+</div>
+<div id="fbs-consolidated-elements" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> FBS Consolidated Elements<a href="#fbs-consolidated-elements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="float">
+<img src="images/fbs_consolidation_elements.png" alt=" Figure 1.2. Datatable presenting the list of area aggregates to be included in the FBS consolidation process." />
+<div class="figcaption"> Figure 1.2. Datatable presenting the list of area aggregates to be included in the FBS consolidation process.</div>
+</div>
+</div>
+<div id="fbs-consolidated-exceptions" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> FBS Consolidated Exceptions<a href="#fbs-consolidated-exceptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="float">
+<img src="images/fbs_consolidation_exceptions.png" alt=" Figure 1.3. Datatable presenting the list of area aggregates to be included in the FBS consolidation process." />
+<div class="figcaption"> Figure 1.3. Datatable presenting the list of area aggregates to be included in the FBS consolidation process.</div>
+</div>
+</div>
+<div id="fbs-consolidated-code-mapping" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> FBS Consolidated Code Mapping<a href="#fbs-consolidated-code-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="float">
+<img src="images/fbs_consolidation_code_mapping.png" alt=" Figure 1.4. Datatable presenting the list of area aggregates to be included in the FBS consolidation process." />
+<div class="figcaption"> Figure 1.4. Datatable presenting the list of area aggregates to be included in the FBS consolidation process.</div>
+</div>
+</div>
+</div>
+<div id="input-codelists" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Input codelists<a href="#input-codelists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="geographicaream49" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> geographicAreaM49<a href="#geographicaream49" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="measureditemfbssua" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> measuredItemFbsSua<a href="#measureditemfbssua" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="input-datasets" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Input datasets<a href="#input-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="fbs_balanced_" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> fbs_balanced_<a href="#fbs_balanced_" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="fi_fbs_faostat_validated" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> fi_fbs_faostat_validated<a href="#fi_fbs_faostat_validated" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="output-datatable" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Output datatable<a href="#output-datatable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="fbs-consolidated-logs" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> FBS Consolidated Logs<a href="#fbs-consolidated-logs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="float">
+<img src="images/fbs_consolidation_logs.png" alt=" Figure 1.5. Datatable presenting the list of area aggregates to be included in the FBS consolidation process." />
+<div class="figcaption"> Figure 1.5. Datatable presenting the list of area aggregates to be included in the FBS consolidation process.</div>
+</div>
+</div>
+</div>
+<div id="output-datasets" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Output datasets<a href="#output-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="fbs-consolidated" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> FBS Consolidated<a href="#fbs-consolidated" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="fbs-sofi" class="section level3 hasAnchor" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> FBS SOFI<a href="#fbs-sofi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Table <a href="#tab:codelists">1.1</a></p>
+<table>
+<caption><span id="tab:codelists">Table 1.1: </span> Codelists used for the four dimensions of the two input datasets (<em>fbs_balanced_</em> and <em>fi_fbs_faostat_validated</em>) and the two output datasets (<em>fbs_consolidated</em> and <em>fbs_sofi</em>).</caption>
+<colgroup>
+<col width="24%" />
+<col width="19%" />
+<col width="21%" />
+<col width="18%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Areas</th>
+<th>Elements</th>
+<th>Items</th>
+<th>Years</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>fbs_balanced_</strong></td>
+<td>geographicAreaM49</td>
+<td>measuredElementSuaFbs</td>
+<td>measuredItemFbsSua</td>
+<td>timePointYears</td>
+</tr>
+<tr class="even">
+<td><strong>fi_fbs_faostat_validated</strong></td>
+<td>geographicAreaM49_fi</td>
+<td>measuredElementSuaFbs</td>
+<td>measuredItemFaostat_L2</td>
+<td>timePointYears</td>
+</tr>
+<tr class="odd">
+<td><strong>fbs_consolidated</strong></td>
+<td>geographicAreaM49</td>
+<td>measuredElementSuaFbs</td>
+<td>measuredItemFbsSua</td>
+<td>timePointYears</td>
+</tr>
+<tr class="even">
+<td><strong>fbs_sofi</strong></td>
+<td>geographicAreaM49</td>
+<td>measuredElementSuaFbs</td>
+<td>measuredItemFbsSua</td>
+<td>timePointYears</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation/tree/main%s",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation/tree/main%s",
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

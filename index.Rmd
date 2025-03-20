@@ -40,7 +40,7 @@ The food component of this account - typically derived as a balancing item - rep
 Using these values and population estimates, per-capita supplies of dietary energy, protein, and fat are calculated and expressed per day. In the FBS, production data refer exclusively to primary products, while all other elements also account for processed products, expressed in terms of their primary commodity equivalent.
 
 
-## Goal of the consolidation process
+## Goal of the FBS consolidation process
 
 The goal of the FBS consolidation process is consolidating and standardizing FBS data coming from all relevant sources into the Statistical Working System^[Prior to the FBS consolidation process, the integration of these two data sources used to occur within FAOSTAT, which has served as the primary reference for replicating the process in SWS.].
 

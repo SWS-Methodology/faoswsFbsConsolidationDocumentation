@@ -76,3 +76,17 @@ Secondary
 Guide
 Flowchart
 BestPractices
+fig:AreaAggregatesDT
+fig:ElementsDT
+fig:ExceptionsDT
+fig:CodeMappingDT
+fig:LogsDT
+tab:codelists
+goal-of-the-fbs-consolidation-process
+tab:parameters
+fig:AutoRetrievalEx
+tab:flags
+fig:secondaryAdmin
+fig:secondaryLaunch
+fig:secondaryError
+fig:flowchart

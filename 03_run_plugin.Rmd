@@ -13,21 +13,21 @@ The longer, technical explanation is detailed in the remainder of this section.
 
 The plugin can be run from either output dataset. It needs to read from and write to the selected output dataset and, potentially, to the "other" one. To make this possible, both output datasets must be set as *primary* and *secondary* datasets for the plugin - otherwise, the "other" output dataset would not be accessible. Figure \@ref(fig:secondaryAdmin) shows how this is configured for the *fbs_consolidation* plugin in the SWS Admin console.
 
-![(\#fig:secondaryAdmin) Figure 3.1. *Attributes* section of the *General* tab of the *fbs_consolidation* plugin in the SWS Admin console.](./images/fbs_secondary_admin.png)
+![(\#fig:secondaryAdmin) Figure 4.1. *Attributes* section of the *General* tab of the *fbs_consolidation* plugin in the SWS Admin console.](./images/fbs_secondary_admin.png)
 
 \
 As a result, the plugin has two new input parameters placed before the standard ones, as shown in Figure \@ref(fig:secondaryLaunch). The output datasets are listed in the same order under both *Datasets* and *Secondary Datasets* (refer again to Figure \@ref(fig:secondaryAdmin)). This ensures the input parameters always have the same meaning, regardless of which output dataset the plugin is run from:\
 - *Secondary Dataset 1* always refers to *FBS Consolidated*.\
 - *Secondary Dataset 2* always refers to *FBS SOFI*. 
 
-![(\#fig:secondaryLaunch) Figure 3.2. First input parameters' selection for the *fbs_consolidation* plugin.](./images/fbs_secondary_launch.png)
+![(\#fig:secondaryLaunch) Figure 4.2. First input parameters' selection for the *fbs_consolidation* plugin.](./images/fbs_secondary_launch.png)
 
 \
 These additional input parameters make running the plugin slightly more complex, especially since *fbs_consolidation* is not a core plugin. Non-core plugins always require selecting a dataset/session for each secondary dataset - they cannot be run otherwise.
 
 By default (see Figure \@ref(fig:secondaryLaunch)), the first two input parameters are pre-selected to point to the dataset itself. However, non-core plugins cannot save to datasets directly. This is particularly important for the "other" output dataset: if you leave the value of its *Secondary Dataset* parameter set to the dataset itself (e.g., if you run from *FBS SOFI* and leave *FBS Consolidated* as *Secondary Dataset 1*), the plugin can be launched but will return an error like the one in Figure \@ref(fig:secondaryError).
 
-![(\#fig:secondaryError) Figure 3.3. Example of error produced by launching a non-core plugin from a session but selecting a dataset as a value for a *Secondary Dataset* input parameter.](./images/fbs_secondary_error.png)
+![(\#fig:secondaryError) Figure 4.3. Example of error produced by launching a non-core plugin from a session but selecting a dataset as a value for a *Secondary Dataset* input parameter.](./images/fbs_secondary_error.png)
 
 \
 Even though *Secondary Datasets* input parameters allow you to select either the dataset or any available session, not all options are valid. Consider this example where the plugin has two output datasets, A and B, and you run it from A:\
@@ -107,7 +107,7 @@ The sooner you save, the lower the risk of conflicts with subsequent runs.</div>
 
 The flowchart shown in Figure \@ref(fig:flowchart) provides a graphical representation of the logical steps to follow when setting up the *fbs_consolidation* plugin. At each decision point, green arrows represent "Yes" answers, while red arrows indicate "No" answers.
 
-![(\#fig:flowchart) Figure 3.4. Flowchart to set up the *fbs_consolidation* plugin. Questions are followed by green arrows to represent "Yes" answers and red arrows to indicate "No" answers.](./images/fbs_flowchart.png)
+![(\#fig:flowchart) Figure 4.4. Flowchart to set up the *fbs_consolidation* plugin. Questions are followed by green arrows to represent "Yes" answers and red arrows to indicate "No" answers.](./images/fbs_flowchart.png)
 
 
 

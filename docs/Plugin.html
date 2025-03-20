@@ -169,11 +169,6 @@ Each team is responsible for executing the plugin independently for their respec
 <p>A summary of the input parameters, their possible values, and their default settings is provided in Table <a href="Plugin.html#tab:parameters">3.1</a>.</p>
 <table>
 <caption><span id="tab:parameters">Table 3.1: </span> Input parameters, their possible values, and default values.</caption>
-<colgroup>
-<col width="37%" />
-<col width="29%" />
-<col width="32%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Input parameter</th>
@@ -226,18 +221,18 @@ Each team is responsible for executing the plugin independently for their respec
 <p>In the case of aggregates, both parents and children are updated to maintain <strong>consistency</strong> across all levels. For example, if the area <em>World</em> [1] is selected, the plugin updates all corresponding countries. Conversely, if a specific country is selected, the <em>World</em> [1] aggregate is also updated to reflect the change. For items, when updating CLFS data for the item aggregate <em>Animal products</em> [S2941], the plugin retrieves all constituent CLFS items from the <em>fbs_balanced_</em> input dataset and updates them in the output datasets. Any aggregate that includes these items is updated as well, using the current version of NFISS data from the output datasets, if necessary.</p>
 <p>A complete example of automatic retrieval is shown in Figure <a href="#fig:AutoRetrievalEx">3.1</a>. Here, CLFS data is being updated (<em>Import data</em> set to <em>CLFS</em>) in the <em>FBS Consolidated</em> output dataset. The following outlines how the plugin processes each dimension.</p>
 <div class="float">
-<img src="images/fbs_automatic_retrieval.png" alt=" Figure 2.1. SWS UI screenshot including a query from output dataset FBS Consolidated." />
-<div class="figcaption"> Figure 2.1. SWS UI screenshot including a query from output dataset <em>FBS Consolidated</em>.</div>
+<img src="images/fbs_automatic_retrieval.png" alt=" Figure 3.1. SWS UI screenshot including a query from output dataset FBS Consolidated." />
+<div class="figcaption"> Figure 3.1. SWS UI screenshot including a query from output dataset <em>FBS Consolidated</em>.</div>
 </div>
 <p><br />
-<strong>Areas.</strong> The query includes an area aggregate, <em>Southern Europe</em>. The plugin imports data from the CLFS input dataset for all countries that are part of <em>Southern Europe</em>. This implies updating data for:
+<strong>Areas.</strong> The query includes an area aggregate, <em>Southern Europe</em>. The plugin imports data from the CLFS input dataset for all countries that are part of <em>Southern Europe</em>. This implies updating data for:<br />
 - Each imported country.<br />
 - The <em>Southern Europe</em> aggregate.<br />
 - Any area aggregate that includes countries from <em>Southern Europe</em>.</p>
-<p><strong>Elements.</strong> The query includes a compound element. The plugin imports data for its base elements: <em>Protein supply [t]</em> and <em>Total Population [1000]</em>. This implies updating data for:
+<p><strong>Elements.</strong> The query includes a compound element. The plugin imports data for its base elements: <em>Protein supply [t]</em> and <em>Total Population [1000]</em>. This implies updating data for:<br />
 - The imported base elements.<br />
 - The computed compound element, <em>Protein supply [g/capita/day]</em>.</p>
-<p><strong>Items.</strong> The query covers an inter-team item aggregate, <em>Animal Products</em>. The plugin pulls all CLFS items that compose this aggregate from the CLFS input dataset, and reads their NFISS counterparts from the output dataset. Since the selected element is a per-capita element, the plugin also imports the item <em>TOTAL POPULATION</em> to provide the necessary population data. The plugin updates data for:
+<p><strong>Items.</strong> The query covers an inter-team item aggregate, <em>Animal Products</em>. The plugin pulls all CLFS items that compose this aggregate from the CLFS input dataset, and reads their NFISS counterparts from the output dataset. Since the selected element is a per-capita element, the plugin also imports the item <em>TOTAL POPULATION</em> to provide the necessary population data. The plugin updates data for:<br />
 - All imported items.<br />
 - The <em>Animal Products</em> aggregate.<br />
 - Any item aggregate that includes items composing <em>Animal Products</em>.</p>

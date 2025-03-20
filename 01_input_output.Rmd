@@ -50,7 +50,7 @@ Currently, the datatable includes 35 area aggregates.
 <div class="note">
 The list of aggregates included in the *FBS Consolidated Area Aggregates* datatable is designed to be **flexible** and can be updated upon request from data owners.</div>
 
-![(\#fig:AreaAggregatesDT) Figure 1.1. Datatable presenting the list of area aggregates to include in the FBS consolidation process.](./images/fbs_consolidation_area_aggregates.png)
+![(\#fig:AreaAggregatesDT) Figure 2.1. Datatable presenting the list of area aggregates to include in the FBS consolidation process.](./images/fbs_consolidation_area_aggregates.png)
 
 
 ### FBS Consolidated Elements
@@ -75,7 +75,7 @@ Population data is retrieved only from the CLFS input dataset.</div>
 
 The total number of unique output elements considered in the FBS consolidation process is 21.
 
-![(\#fig:ElementsDT) Figure 1.2. Datatable presenting the list of input and output elements, including conversion multipliers and formulas used to compute compound elements.](./images/fbs_consolidation_elements.png)
+![(\#fig:ElementsDT) Figure 2.2. Datatable presenting the list of input and output elements, including conversion multipliers and formulas used to compute compound elements.](./images/fbs_consolidation_elements.png)
 
 
 ### FBS Consolidated Exceptions
@@ -86,8 +86,8 @@ Key identifiers for this datatable are:\
 - Domain id: `disseminated`.\
 - Datatable id: `fbs_consolidated_exceptions`.
 
-Each row in the datatable represents an exception, which can be **unidimensional** (e.g., all data for one element, regardless of areas, items, or years) or **multidimensional** (e.g., all data for a given combination of area-item-element). Exceptions are applied during two possible steps:\
-- **Dissemination step**, meaning the data is not published.\
+Each row in the datatable represents an exception, which can be **unidimensional** (e.g., all data for one element, regardless of areas, items, or years) or **multidimensional** (e.g., all data for a given combination of area-item-element). Exceptions are applied during two possible steps:  
+- **Dissemination step**, meaning the data is not published.  
 - **Aggregation step**, meaning data is excluded from area or item aggregates.
 
 The most common case is for the exception to be applied in both cases. However, there are exceptions where data may be aggregated but not disseminated (or viceversa).
@@ -95,7 +95,7 @@ The most common case is for the exception to be applied in both cases. However, 
 <div class="note">
 Dissemination-only exceptions (such as *Palestine*, which is considered in area aggregates but is not published as a distinct area) are not applied within the FBS consolidation process to ensure the reproducibility of results across different plugin runs. They will instead be applied when SWS data is exported to the dissemination platform.</div>
 
-As depicted in Figure \@ref(fig:ExceptionsDT), the datatable has **ten columns**:\
+As shown in Figure \@ref(fig:ExceptionsDT), the datatable has **ten columns**:\
 - *Area Code* and *Area*, representing areas.\
 - *Item Code* and *Item*, representing items.\
 - *Element Code* and *Element*, representing output elements.\
@@ -108,7 +108,7 @@ The datatable was adapted from a similar table used for dissemination to FAOSTAT
 <div class="note">
 The list of exceptions included in the *FBS Consolidated Exceptions* datatable is designed to be **flexible** and can be updated upon request from data owners.</div>
 
-![(\#fig:ExceptionsDT) Figure 1.3. Datatable presenting the list of exceptions to be applied within the FBS consolidation process.](./images/fbs_consolidation_exceptions.png)
+![(\#fig:ExceptionsDT) Figure 2.3. Datatable presenting the list of exceptions to be applied within the FBS consolidation process.](./images/fbs_consolidation_exceptions.png)
 
 
 ### FBS Consolidated Code Mapping
@@ -133,10 +133,10 @@ As shown in Figure \@ref(fig:CodeMappingDT), the datatable has **five columns**:
 - *Type*, describing which dimension is affected by the mapping operation.\
 - *NFISS item CL*, a logical value indicating whether the mapping pertains to items from the NFISS item codelist.\
 - *Description*, providing the description of the code being mapped.\
-- *Old*, showing the old code.\ 
-- *New*, showing the new code.\ 
+- *Old*, showing the old code.\
+- *New*, showing the new code.
 
-![(\#fig:CodeMappingDT) Figure 1.4. Datatable defining the mapping operations between input codes and output (consolidated) codes.](./images/fbs_consolidation_code_mapping.png)
+![(\#fig:CodeMappingDT) Figure 2.4. Datatable defining the mapping operations between input codes and output (consolidated) codes.](./images/fbs_consolidation_code_mapping.png)
 
 
 
@@ -158,9 +158,9 @@ The *measuredItemFbsSua* codelist is used to retrieve **the composition of item 
 
 ## Input datasets
 
-Input data for the FBS consolidation process is provided by two input datasets, one for each of the two teams producing FBS data:\
-- The *Crops, Livestocks, and Food Statistics* (CLFS) team of the *Statistics division* (ESS).\
-- The *Fisheries and Aquaculture Statistics* (NFISS) team of the *Fisheries division* (NFI).\
+Input data for the FBS consolidation process is provided by two input datasets, one for each of the two teams producing FBS data:  
+- The *Crops, Livestocks, and Food Statistics* (CLFS) team of the *Statistics division* (ESS).  
+- The *Fisheries and Aquaculture Statistics* (NFISS) team of the *Fisheries division* (NFI).
 
 The two input datasets are briefly introduced below.
 
@@ -177,10 +177,10 @@ Key identifiers for this dataset are:\
 - Domain id: `suafbs`.\
 - Dataset id: `fbs_balanced_`.
 
-The CLFS input dataset uses the following codelists for its four dimensions:
-- Areas: *geographicAreaM49*.
-- Elements: *measuredElementSuaFbs*.
-- Items: *measuredItemFbsSua*.
+The CLFS input dataset uses the following codelists for its four dimensions:  
+- Areas: *geographicAreaM49*.  
+- Elements: *measuredElementSuaFbs*.  
+- Items: *measuredItemFbsSua*.  
 - Years: *timePointYears*.
 
 
@@ -192,10 +192,10 @@ Key identifiers for this dataset are:\
 - Domain id: `FisheriesCommodities`.\
 - Dataset id: `fi_fbs_faostat_validated`.
 
-The NFISS input dataset uses the following codelists for its four dimensions:
-- Areas: *geographicAreaM49_fi*.
-- Elements: *measuredElementSuaFbs*.
-- Items: *measuredItemFaostat_L2*.
+The NFISS input dataset uses the following codelists for its four dimensions:  
+- Areas: *geographicAreaM49_fi*.  
+- Elements: *measuredElementSuaFbs*.  
+- Items: *measuredItemFaostat_L2*.  
 - Years: *timePointYears*.
 
 
@@ -212,9 +212,9 @@ Key identifiers for this datatable are:\
 - Domain id: `disseminated`.\
 - Datatable id: `fbs_consolidated_logs`.
 
-The *FBS Consolidated Logs* datatable serves **multiple purposes**:
-- It records all plugin runs.
-- It summarizes key details for each run, including the user, date and time, runtime, input and output datasets, whether the query was used, the years, and the number and codes of countries involved.
+The *FBS Consolidated Logs* datatable serves **multiple purposes**:  
+- It records all plugin runs.  
+- It summarizes key details for each run, including the user, date and time, runtime, input and output datasets, whether the query was used, the years, and the number and codes of countries involved.  
 - It facilitates coordination between teams by indicating whether a plugin run is currently active or was recently completed. In this case, one team can contact the other to confirm whether the results were saved to the output dataset(s), minimizing the risk of conflicting sessions.
 
 <div class="warning">
@@ -228,11 +228,11 @@ Regurarly check the *FBS Consolidated Logs* datatable when using the plugin, esp
 The datatable, shown in Figure \@ref(fig:LogsDT), has **12 columns**. The most relevant fields include:\
 - *ID*, a unique identifier that can be used to chronologically sort the plugin runs.\
 - *Runtime*, displaying the computational time that was required to complete the task. If the value is '-', it means the plugin either failed or is still running.\
-- *FBS Cons Session* and *FBS SOFI Session*, providing the ID of the SWS sessions associated with each run. This information helps users easily retrieve the results of previous runs. If the field is blank, it means that the run did not update the corresponding output dataset.
-- *Query*, indicating whether the plugin was launched considering the query.
+- *FBS Cons Session* and *FBS SOFI Session*, providing the ID of the SWS sessions associated with each run. This information helps users easily retrieve the results of previous runs. If the field is blank, it means that the run did not update the corresponding output dataset.\
+- *Query*, indicating whether the plugin was launched considering the query.\
 - *Areas No.* and *Areas Codes*, respectively indicating the number of areas and the list of area codes considered for the run. This information is useful for coordination between teams.
 
-![(\#fig:LogsDT) Figure 1.5. Datatable providing detailed information on all the runs of the *fbs_consolidation* plugin.](./images/fbs_consolidation_logs.png)
+![(\#fig:LogsDT) Figure 2.5. Datatable providing detailed information on all the runs of the *fbs_consolidation* plugin.](./images/fbs_consolidation_logs.png)
 
 
 ## Output datasets

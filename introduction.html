@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>FBS consolidation process</title>
+  <meta name="description" content="This is the documentation for the FBS Consolidation process." />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="FBS consolidation process" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://github.com/SWS-Methodology/FbsConsolidation/./images/FAO_logo.svg.png" />
+  <meta property="og:description" content="This is the documentation for the FBS Consolidation process." />
+  <meta name="github-repo" content="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="FBS consolidation process" />
+  
+  <meta name="twitter:description" content="This is the documentation for the FBS Consolidation process." />
+  <meta name="twitter:image" content="https://github.com/SWS-Methodology/FbsConsolidation/./images/FAO_logo.svg.png" />
+
+<meta name="author" content="Author: Riccardo Giubilei" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="./images/FAO_logo.svg.ico" type="image/x-icon" />
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#introduction"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#food-balance-sheets-data"><i class="fa fa-check"></i><b>1.1</b> Food Balance Sheets data</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#goal-of-the-consolidation-process"><i class="fa fa-check"></i><b>1.2</b> Goal of the consolidation process</a></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#summary"><i class="fa fa-check"></i><b>1.3</b> Summary</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">FBS consolidation process</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">FBS consolidation process</h1>
+<p class="author"><em>Author: Riccardo Giubilei</em></p>
+</div>
+<div id="introduction" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction<a href="#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This document describes the Food Balance Sheets (FBS) consolidation process and how it is performed using the <em>fbs_consolidation</em> plugin within the Statistical Working System (SWS) of the Food and Agricultural Organization of the United Nations (FAO).</p>
+<div id="food-balance-sheets-data" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Food Balance Sheets data<a href="#food-balance-sheets-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Food Balance Sheets provide a comprehensive overview of a country’s food supply during a given reference period. It details the sources and utilization of each food item, including primary commodities and processed products available for human consumption.</p>
+<p>On the supply side, the total quantity of food produced domestically, combined with imports and adjusted for stock changes, determines the available supply. On the utilization side, the FBS accounts for exports, livestock feed, seed use, industrial processing (for both food and non-food purposes), storage and transportation losses, and food available for human consumption.</p>
+<p>The per-capita availability of each food item for human consumption is derived by dividing the total quantity by the relevant population. These figures are expressed in terms of quantity and, using appropriate food composition factors, in caloric value, as well as protein and fat content.</p>
+<p>The Food Balance Sheets are compiled annually by FAO, primarily using country-level data on food commodity production and trade. These data, along with information on seed rates, waste coefficients, stock changes, and various utilization types (including food, feed, processing, and other uses), are used to construct a supply/utilization account for each commodity in weight terms.</p>
+<p>The food component of this account - typically derived as a balancing item - represents the total quantity of a commodity available for human consumption during the year. In addition to commodity-specific details, the FAO FBS data provide estimates of total food availability by aggregating the food component of all commodities, including fishery products.</p>
+<p>Using these values and population estimates, per-capita supplies of dietary energy, protein, and fat are calculated and expressed per day. In the FBS, production data refer exclusively to primary products, while all other elements also account for processed products, expressed in terms of their primary commodity equivalent.</p>
+</div>
+<div id="goal-of-the-consolidation-process" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Goal of the consolidation process<a href="#goal-of-the-consolidation-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The goal of the FBS consolidation process is consolidating and standardizing FBS data coming from all relevant sources into the Statistical Working System<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>FBS data is produced by two teams:<br />
+- the <em>Crops, Livestocks, and Food Statistics</em> (CLFS) team of the <em>Statistics division</em> (ESS).<br />
+- the <em>Fisheries and Aquaculture Statistics</em> (NFISS) team of the <em>Fisheries division</em> (NFI).<br />
+</p>
+</div>
+<div id="summary" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Summary<a href="#summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The structure of this document as follows. Chapter <a href="#InputOutput"><strong>??</strong></a> provides a detailed description of the input and output objects used by the <em>fbs_consolidation</em>. Chapter <a href="#Plugin"><strong>??</strong></a> focuses on the plugin itself, explaining the purpose and functioning of its input parameters, as well as the overall workflow it follows. Finally, Chapter <a href="#RunPlugin"><strong>??</strong></a> offers practical guidance on how to execute the plugin.</p>
+</div>
+</div>
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Prior to the FBS consolidation process, the integration of these two data sources used to occur within FAOSTAT, which has served as the primary reference for replicating the process in SWS.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation/tree/main%s",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation/tree/main%s",
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

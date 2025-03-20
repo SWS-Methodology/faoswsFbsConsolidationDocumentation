@@ -72,13 +72,13 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS</a></li>
+<li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS consolidation process</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#food-balance-sheets-data"><i class="fa fa-check"></i><b>1.1</b> Food Balance Sheets data</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#goal-of-the-consolidation-process"><i class="fa fa-check"></i><b>1.2</b> Goal of the consolidation process</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#goal-of-the-fbs-consolidation-process"><i class="fa fa-check"></i><b>1.2</b> Goal of the FBS consolidation process</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#summary"><i class="fa fa-check"></i><b>1.3</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="InputOutput.html"><a href="InputOutput.html"><i class="fa fa-check"></i><b>2</b> Input and output</a>
@@ -154,34 +154,35 @@
 </div>
 <div id="introduction" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This document describes the Food Balance Sheets (FBS) consolidation process and how it is performed using the <em>fbs_consolidation</em> plugin within the Statistical Working System (SWS) of the Food and Agricultural Organization of the United Nations (FAO).</p>
+<p>This document describes the Food Balance Sheets (FBS) consolidation process and how it is performed within the Statistical Working System (SWS) of the Food and Agricultural Organization of the United Nations (FAO).</p>
 <div id="food-balance-sheets-data" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Food Balance Sheets data<a href="index.html#food-balance-sheets-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The Food Balance Sheets provide a comprehensive overview of a country’s food supply during a given reference period. It details the sources and utilization of each food item, including primary commodities and processed products available for human consumption.</p>
 <p>On the supply side, the total quantity of food produced domestically, combined with imports and adjusted for stock changes, determines the available supply. On the utilization side, the FBS accounts for exports, livestock feed, seed use, industrial processing (for both food and non-food purposes), storage and transportation losses, and food available for human consumption.</p>
 <p>The per-capita availability of each food item for human consumption is derived by dividing the total quantity by the relevant population. These figures are expressed in terms of quantity and, using appropriate food composition factors, in caloric value, as well as protein and fat content.</p>
-<p>The Food Balance Sheets are compiled annually by FAO, primarily using country-level data on food commodity production and trade. These data, along with information on seed rates, waste coefficients, stock changes, and various utilization types (including food, feed, processing, and other uses), are used to construct a supply/utilization account for each commodity in weight terms.</p>
-<p>The food component of this account - typically derived as a balancing item - represents the total quantity of a commodity available for human consumption during the year. In addition to commodity-specific details, the FAO FBS data provide estimates of total food availability by aggregating the food component of all commodities, including fishery products.</p>
-<p>Using these values and population estimates, per-capita supplies of dietary energy, protein, and fat are calculated and expressed per day. In the FBS, production data refer exclusively to primary products, while all other elements also account for processed products, expressed in terms of their primary commodity equivalent.</p>
+<p>The Food Balance Sheets are compiled annually by FAO, primarily using country-level data on food commodity production and trade. This data, along with information on seed rates, waste coefficients, stock changes, and various utilization types (including food, feed, processing, and other uses), is used to construct a supply/utilization account for each commodity in weight terms.</p>
+<p>The food component of this account - typically derived as a balancing item - represents the total quantity of a commodity available for human consumption during the year. In addition to commodity-specific details, FAO FBS data provides estimates of total food availability by aggregating the food component of all commodities, including fishery products.</p>
+<p>Using these values and population estimates, per-capita supplies of dietary energy, protein, and fat are calculated and expressed per day. In the FBS, production data refers exclusively to primary products, while all other elements also account for processed products, expressed in terms of their primary commodity equivalent.</p>
 </div>
-<div id="goal-of-the-consolidation-process" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Goal of the consolidation process<a href="index.html#goal-of-the-consolidation-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The goal of the FBS consolidation process is consolidating and standardizing FBS data coming from all relevant sources into the Statistical Working System<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<div id="goal-of-the-fbs-consolidation-process" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Goal of the FBS consolidation process<a href="index.html#goal-of-the-fbs-consolidation-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The goal of the FBS consolidation process is consolidating and standardizing FBS data into the Statistical Working System<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 <p>FBS data is produced by two teams:<br />
 - the <em>Crops, Livestocks, and Food Statistics</em> (CLFS) team of the <em>Statistics division</em> (ESS).<br />
 - the <em>Fisheries and Aquaculture Statistics</em> (NFISS) team of the <em>Fisheries division</em> (NFI).<br />
 </p>
+<p>The FBS consolidation process is performed within SWS using the <em>fbs_consolidation</em> plugin.</p>
 </div>
 <div id="summary" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> Summary<a href="index.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The structure of this document as follows. Chapter <a href="InputOutput.html#InputOutput">2</a> provides a detailed description of the input and output objects used by the <em>fbs_consolidation</em>. Chapter <a href="Plugin.html#Plugin">3</a> focuses on the plugin itself, explaining the purpose and functioning of its input parameters, as well as the overall workflow it follows. Finally, Chapter <a href="RunPlugin.html#RunPlugin">4</a> offers practical guidance on how to execute the plugin.</p>
+<p>The structure of this document is as follows. Chapter <a href="InputOutput.html#InputOutput">2</a> provides a detailed description of the input and output objects used by the <em>fbs_consolidation</em> plugin. Chapter <a href="Plugin.html#Plugin">3</a> focuses on the plugin itself, explaining the purpose and functioning of its input parameters, as well as the overall workflow it follows. Finally, Chapter <a href="RunPlugin.html#RunPlugin">4</a> offers practical guidance on how to execute the plugin.</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Prior to the FBS consolidation process, the integration of these two data sources used to occur within FAOSTAT, which has served as the primary reference for replicating the process in SWS.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Prior to the FBS consolidation process, the integration of FBS data sources used to occur within FAOSTAT, which has served as the primary reference for replicating the process in SWS.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

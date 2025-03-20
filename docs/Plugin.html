@@ -72,7 +72,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS</a></li>
+<li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS consolidation process</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -153,7 +153,7 @@
 <p>The consolidation of FBS data is performed using the <em>fbs_consolidation</em> plugin. The plugin can be executed from either of the two output datasets:<br />
 - <em>FBS Consolidated</em>, in the <em>Disseminated Dataset</em> domain.<br />
 - <em>FBS SOFI</em>, in the <em>Food Security</em> domain.</p>
-<p>The plugin updates the output datasets with newly avaiable data from the input datasets. More precisely, it pulls data from the chosen input dataset, reads data from the output datasets, computes aggregates, performs other operations, and saves back only the updated results. If both output datasets need to be updated simultaneously, the plugin implements two parallel data processing streams, one for each output dataset.</p>
+<p>The plugin updates the output datasets with newly avaiable data from the input datasets. More precisely, it pulls data from the chosen input dataset, reads data from the output datasets, computes aggregates, performs other operations, and saves back the updated results. If both output datasets need to be updated simultaneously, the plugin implements two parallel data processing streams, one for each output dataset.</p>
 <div class="note">
 Each team is responsible for executing the plugin independently for their respective data.
 </div>
@@ -162,7 +162,7 @@ Each team is responsible for executing the plugin independently for their respec
 <h2><span class="header-section-number">3.1</span> Input parameters<a href="Plugin.html#InputParams" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The plugin’s input parameters are designed to provide <strong>flexibility</strong> in controlling its behavior. Below is an explanation of each parameter.<br />
 - <strong>Import data</strong> determines the input data source to import from, i.e., whether to update the CLFS or the NFISS component in the output datasets. Aggregates that involve both components will be computed using the updated version of the selected component from the input dataset and the current version of the other component from the output datasets. For example, if <em>Import data</em> is set to <em>CLFS</em>, the updated CLFS data will be pulled from the <em>fbs_balanced_</em> input dataset, while NFISS data will be read from the output dataset.<br />
-- <strong>Limit import to query</strong> specifies whether to update the output dataset(s) only for the sessions’s query and its implications. In other words, it allows users to append either all data points (when set to <em>No</em>) or only those resulting from the keys’ combinations in the query used to run the plugin (if set to <em>Yes</em>). This enables more focused updates, for example, for a single country. By default, the results are not limited to the query.<br />
+- <strong>Limit import to query</strong> specifies whether to update the output dataset(s) only for the sessions’s query and its implications. In other words, it allows users to append either all data points (when set to <em>No</em>) or only those resulting from the keys’ combinations in the query used to run the plugin (if set to <em>Yes</em>). This enables more focused updates, for example, for a single country. By default, the results are not limited to the query. Further details on this input parameter may be found in Section <a href="Plugin.html#AutoRetrieval">3.2</a>.<br />
 - <strong>Starting year</strong> indicates the earliest year of data to include in the update. It must be a numeric value greater than 2009, with a default of 2010.<br />
 - <strong>Ending year</strong> indicates the latest year of data to include in the update. It must be a numeric value less than 2100. By default, the plugin considers the latest available year.<br />
 - <strong>Update both output datasets</strong> allows users to choose whether to update both output datasets or only the one currently used to run the plugin. The default behavior is to apply updates only to the current output dataset.</p>
@@ -218,8 +218,8 @@ Each team is responsible for executing the plugin independently for their respec
 - It references the <em>FBS Consolidated Elements</em> datatable to determine which input elements are required for calculations.<br />
 - It performs the necessary computations and aggregations.<br />
 - It updates all related parts in the output datasets.</p>
-<p>In the case of aggregates, both parents and children are updated to maintain <strong>consistency</strong> across all levels. For example, if the area <em>World</em> [1] is selected, the plugin updates all corresponding countries. Conversely, if a specific country is selected, the <em>World</em> [1] aggregate is also updated to reflect the change. For items, when updating CLFS data for the item aggregate <em>Animal products</em> [S2941], the plugin retrieves all constituent CLFS items from the <em>fbs_balanced_</em> input dataset and updates them in the output datasets. Any aggregate that includes these items is updated as well, using the current version of NFISS data from the output datasets, if necessary.</p>
-<p>A complete example of automatic retrieval is shown in Figure <a href="#fig:AutoRetrievalEx">3.1</a>. Here, CLFS data is being updated (<em>Import data</em> set to <em>CLFS</em>) in the <em>FBS Consolidated</em> output dataset. The following outlines how the plugin processes each dimension.</p>
+<p>In the case of aggregates, both parents and children are updated to maintain <strong>consistency</strong> across all levels. For example, if the area <em>World</em> [1] is selected, the plugin updates all corresponding countries. Conversely, if a specific country is selected, the <em>World</em> [1] aggregate is also updated to reflect the change. For items, when updating CLFS data for the item aggregate <em>Animal products</em> [S2941], the plugin retrieves all constituent CLFS items from the <em>fbs_balanced_</em> input dataset and updates them in the output datasets. Any aggregate that includes these items is updated as well - using the current version of NFISS data from the output datasets, if necessary.</p>
+<p>A complete example of automatic retrieval is shown in Figure <a href="#fig:AutoRetrievalEx">3.1</a>. Here, CLFS data is being updated (<em>Import data</em> set to <em>CLFS</em>) in the <em>FBS Consolidated</em> output dataset. The following paragraphs outline how the plugin processes each dimension.</p>
 <div class="float">
 <img src="images/fbs_automatic_retrieval.png" alt=" Figure 3.1. SWS UI screenshot including a query from output dataset FBS Consolidated." />
 <div class="figcaption"> Figure 3.1. SWS UI screenshot including a query from output dataset <em>FBS Consolidated</em>.</div>
@@ -240,7 +240,7 @@ Each team is responsible for executing the plugin independently for their respec
 </div>
 <div id="Workflow" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Workflow<a href="Plugin.html#Workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This section describes the workflow followed by the plugin. Specifically, Section <a href="Plugin.html#Preliminary">3.3.1</a> covers the preliminary operations and processing of auxiliary information. Section <a href="Plugin.html#DataImport">3.3.2</a> explains how the plugin queries the input datasets and transforms the imported data. After that, Section <a href="Plugin.html#PostImport">3.3.3</a> illustrates the post-import processing operations, including the computation of compound elements, the application of exceptions rules, and aggregation. Finally, Section <a href="Plugin.html#Saving">3.3.4</a> describes the saving procedure that concludes the process.</p>
+<p>This section describes the workflow followed by the plugin. Specifically, Section <a href="Plugin.html#Preliminary">3.3.1</a> covers its preliminary operations and processing of auxiliary information. Section <a href="Plugin.html#DataImport">3.3.2</a> explains how the plugin queries the input datasets and transforms the imported data. Section <a href="Plugin.html#PostImport">3.3.3</a> illustrates the post-import processing operations, including the computation of compound elements, the application of exceptions rules, and aggregation. Finally, Section <a href="Plugin.html#Saving">3.3.4</a> describes the saving procedure that concludes the process.</p>
 <div id="Preliminary" class="section level3 hasAnchor" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Preliminary operations<a href="Plugin.html#Preliminary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Before importing data, the plugin reads and processes four SWS input datatables to obtain key auxiliary information:<br />
@@ -248,38 +248,38 @@ Each team is responsible for executing the plugin independently for their respec
 - <em>FBS Consolidated Elements</em> - to retrieve the list of input and output elements, including multipliers for necessary conversions and formulas for compound elements.<br />
 - <em>FBS Consolidated Exceptions</em> - to obtain the list of exceptions to apply.<br />
 - <em>FBS Consolidated Code Mapping</em> - to define the mapping operations between input and output codes.</p>
-<p>The plugin also extracts information from two codelists:
+<p>The plugin also extracts information from two codelists:<br />
 - <em>geographicAreaM49</em> - to retrieve the composition of the area aggregates included in the <em>FBS Consolidated Area Aggregates</em> datatable.<br />
 - <em>measuredItemFbsSua</em> - to retrieve the composition of item aggregates.</p>
 <p>Finally, the plugin reads the user-specified input parameters and handles their interactions to ensure consistency.</p>
 </div>
 <div id="DataImport" class="section level3 hasAnchor" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Data import<a href="Plugin.html#DataImport" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To facilitate data retrieval, the plugin prepares the necessary keys for importing data from the input dataset. This step is crucial for the automatic retrieval procedure. First, information about the composition of aggregates and elements is used to augment the query. Then, the plugin applies the code mapping rules to translate between the output datasets’ coding conventions and those of the input datasets.</p>
+<p>To facilitate data retrieval, the plugin prepares the necessary keys for importing data from the input datasets. This step is crucial for the automatic retrieval procedure described in Section <a href="Plugin.html#AutoRetrieval">3.2</a>. First, information about the composition of aggregates and elements is used to augment the query. Then, the plugin applies the code mapping rules to translate between the output datasets’ coding conventions and those of the input datasets.</p>
 <p>As an intermediate step, the plugin initializes a log entry for the current run in the <em>FBS Consolidated Logs</em> datatable.</p>
 <p>Depending on the input parameters, the plugin imports data from either one or both input datasets. The only scenario where both datasets are used is when NFISS per-capita elements are required, as population data is always sourced from the CLFS input dataset, even when <em>Import data</em> is set to <em>NFISS data</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The plugin performs one or both of the following operations:<br />
 - It retrieves data from the CLFS input dataset and applies predefined mapping rules.<br />
 - It retrieves data from the NFISS input dataset and applies predefined mapping rules.</p>
-<p>Mapping rules are derived from the <em>FBS Consolidated Code Mapping</em> datatable. If NFISS data is imported and <em>Stock Variation [t]</em> data is available, its sign is adjusted to match the CLFS definition<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>Mapping rules are derived from the <em>FBS Consolidated Code Mapping</em> datatable. If NFISS data is imported and <em>Stock Variation [t]</em> data is available, its sign is adjusted to match the CLFS definition<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
 <p>The plugin also applies a carry-forward procedure to NFISS data to preserve continuity. It automatically retrieves the latest year based on CLFS input data and implements a last-observation-carried-forward (LOCF) procedure. This process considers only non-missing, non-carried-forward values from the previous three years. For example, if the latest year is 2023, the plugin considers valid observations from 2020 onward. The plugin assigns flag combination E,t to carry-forwarded data and uses the <em>Method</em> flag to distinguish between previously carried-forward data and data generated by the technical team.</p>
 <p>If both CLFS and NFISS data are imported, they are merged. Once input data is obtained, the plugin reads data from the output dataset(s) and identifies outdated carry-forward values. These are data points flagged as carried-forward that belong to years prior to those currently considered in the LOCF process.</p>
 </div>
 <div id="PostImport" class="section level3 hasAnchor" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> Post-import processing operations<a href="Plugin.html#PostImport" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The first post-import step is to double-check the country-year validity of input data and exclude potentially inaccurate records.</p>
-<p>Next, the plugin computes selected output elements. Specifically, wherever applicable, it:<br />
+<p>Next, the plugin computes selected output elements. Specifically, whenever applicable, it:<br />
 - Converts elements by applying the appropriate multipliers to derive output elements.<br />
 - Computes <em>Domestic supply quantity [1000 t]</em> using input data.</p>
 <p>The formula for the Domestic Supply Quantity is detailed in Section <a href="Plugin.html#CompoundElements">3.5</a>. In this case, the plugin assigns flag combination E,i.</p>
-<p>After these computation steps, the plugin applies aggregation exception rules. These rules may exclude some specific records from aggregation. The plugin then merges input data with output data, prioritizing input data in case of conflicts. The aggregation process follows a two-step sequence: area aggregation, and then item aggregation. Aggregated data is assigned flag combinations based on flag aggregation rules, with E,s being the most common.</p>
-<p>Once aggregation is complete, the plugin computes per-capita elements for all areas, including both countries and area aggregates, using CLFS population figures. The formulas used are detailed in Section <span class="citation">@ref</span>(CompoundElements), and the flag combination is E,i.</p>
+<p>After these computation steps, the plugin applies aggregation exception rules. These rules may exclude some specific records from aggregation. The plugin then merges input data with output data, prioritizing input data in case of conflicts. The aggregation process follows a two-step sequence: area aggregation first, item aggregation second. Aggregated data is assigned flag combinations based on flag aggregation rules, with E,s being the most common.</p>
+<p>Once aggregation is complete, the plugin computes per-capita elements for all areas, including both countries and area aggregates, using CLFS population figures. The formulas used are detailed in Section <a href="Plugin.html#CompoundElements">3.5</a>, and the flag combination assigned is E,i.</p>
 <p>Finally, the plugin applies the dissemination exception rules<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Outdated carry-forward data is then removed by setting its values and flags to NA before merging it back with the processed data.</p>
 </div>
 <div id="Saving" class="section level3 hasAnchor" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> Saving procedure<a href="Plugin.html#Saving" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The final step involves saving results to the relevant session(s) of the output dataset(s). Specifically, the plugin saves:<br />
-- To the session from which it was launched.<br />
-- To the selected session of the other output dataset, if <em>Update both output datasets</em> is set to <em>Yes</em>.</p>
+<p>The final step involves saving results to the relevant session(s) of the output dataset(s). Specifically, the plugin saves to:<br />
+- The session from which it was launched.<br />
+- The selected session of the other output dataset, if <em>Update both output datasets</em> is set to <em>Yes</em> (see Section <a href="RunPlugin.html#Secondary">4.1</a> for details).</p>
 <p>Upon successful saving, the plugin generates logs documenting the saving procedure and its outcome. The run concludes by updating the corresponding entry in the <em>FBS Consolidated Logs</em> datatable to include the final computation time.</p>
 </div>
 </div>

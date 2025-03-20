@@ -4,5 +4,5 @@ bookdown::gitbook:
     toc:
 
       before: |
-        <li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS</a></li>
+        <li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS consolidation process</a></li>
 

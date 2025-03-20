@@ -20,14 +20,14 @@ As a result, the plugin has two new input parameters placed before the standard 
 - *Secondary Dataset 1* always refers to *FBS Consolidated*.\
 - *Secondary Dataset 2* always refers to *FBS SOFI*. 
 
-![(\#fig:secondaryLaunch) Figure 4.2. First input parameters' selection for the *fbs_consolidation* plugin.](./images/fbs_secondary_launch.png)
+![(\#fig:secondaryLaunch) Figure 4.2. First part of input parameters for the *fbs_consolidation* plugin.](./images/fbs_secondary_launch.png)
 
 \
 These additional input parameters make running the plugin slightly more complex, especially since *fbs_consolidation* is not a core plugin. Non-core plugins always require selecting a dataset/session for each secondary dataset - they cannot be run otherwise.
 
-By default (see Figure \@ref(fig:secondaryLaunch)), the first two input parameters are pre-selected to point to the dataset itself. However, non-core plugins cannot save to datasets directly. This is particularly important for the "other" output dataset: if you leave the value of its *Secondary Dataset* parameter set to the dataset itself (e.g., if you run from *FBS SOFI* and leave *FBS Consolidated* as *Secondary Dataset 1*), the plugin can be launched but will return an error like the one in Figure \@ref(fig:secondaryError).
+By default, the first two input parameters are pre-selected to point to the dataset itself (see Figure \@ref(fig:secondaryLaunch)). However, non-core plugins cannot save to datasets directly. This is particularly important for the "other" output dataset: if you leave the value of its *Secondary Dataset* parameter set to the dataset itself (e.g., if you run from *FBS SOFI* and leave *FBS Consolidated* as *Secondary Dataset 1*), the plugin can be launched but will return an error like the one in Figure \@ref(fig:secondaryError).
 
-![(\#fig:secondaryError) Figure 4.3. Example of error produced by launching a non-core plugin from a session but selecting a dataset as a value for a *Secondary Dataset* input parameter.](./images/fbs_secondary_error.png)
+![(\#fig:secondaryError) Figure 4.3. Example of error produced by launching a non-core plugin from a session but selecting a dataset as a value for the "other" *Secondary Dataset* input parameter.](./images/fbs_secondary_error.png)
 
 \
 Even though *Secondary Datasets* input parameters allow you to select either the dataset or any available session, not all options are valid. Consider this example where the plugin has two output datasets, A and B, and you run it from A:\
@@ -43,9 +43,9 @@ To simplify the procedure of launching the *fbs_consolidation* plugin, you can:\
 
 ## Step-by-step guide {#Guide}
 
-This section provides a step-by-step guide on how to run the *fbs_consolidation* plugin. The instructions refer to the new SWS UI but can be easily adapted for the legacy interface as well.
+This section provides a step-by-step guide on how to run the *fbs_consolidation* plugin. The instructions refer to the new SWS UI but can be easily adapted for the legacy interface.
 
-This quick operational guide shows how to navigate the SWS environment to run the plugin. It is intended for users who are already familiar with the FBS consolidation process and understand the key parameters and settings required to run the plugin effectively. If you are unsure how it works or need further clarification, you can pair this guide with the flowchart provided in Section \@ref(Flowchart).
+This quick operational guide shows how to navigate the SWS environment to run the plugin. It is intended for users who are already familiar with the FBS consolidation process and understand the key parameters and settings required to run the plugin effectively. If you are unsure on how it works or need further clarification, you can pair this guide with the flowchart provided in Section \@ref(Flowchart).
 
 The steps needed to run the plugin in SWS are the following.
 
@@ -90,7 +90,7 @@ You can use the Task Manager to control the plugin's execution.</div>
 ![](./images/fbs_guide11.png)
 1. Upon successful completion, click *Refresh data* to load the updated results.
 <div class="note">
-This step and the following two applies to both sessions when "Update both output datasets" is set to "Yes".</div>
+This step and the following two applies to both sessions when *Update both output datasets* is set to *Yes*.</div>
 ![](./images/fbs_guide12.png)
 1. If needed, use the *Review changes* tool to inspect the modifications. 
 <div class="note">
@@ -117,12 +117,12 @@ The following is a list of best practices to ensure a smooth FBS consolidation p
 
 - Regurarly check the *FBS Consolidated Logs* datatable when using the plugin, especially before starting new runs. If there are recent runs, reach out to the team that launched the plugin lately to confirm whether the results were saved to the output dataset(s). This helps minimize the risk of conflicting sessions.
 - When launching the plugin, consider strategies to reduce computational time. For example, you can run the plugin with single years and/or with a limited query.
-- Create a dummy session for each output dataset and select them consistently, except when *Update both output datasets* is set to *Yes*. In this case, select the dummy session for "this" output dataset, and for the "other" output dataset, select the session where you intend to the save the data.
+- Create a dummy session for each output dataset and select them consistently, except when *Update both output datasets* is set to *Yes*. In this case, select the dummy session for "this" output dataset, and, for the "other" output dataset, select the session where you intend to the save the data.
 - After running the plugin, use the *Review changes* tool to focus only on the updated data points.
-- If there are changes you wish to retain, click on *Save changes to dataset*. The sooner you save changes, the lower the risk of conflicts during other runs. 
+- After double-checking the results, click *Save changes to dataset* if there are changes you wish to retain. The sooner you save changes, the lower the risk of conflicts during other runs. 
 - Using blank cells to indicate null quantities should be avoided, as this can lead to misunderstandings or inconsistencies in the data.
 - Instead of removing previously existing values, it is preferable to replace them with zero-valued observations and use appropriate flags to explain the reason for the change.
-- Any changes to the process - such as modifying exceptions or other computational rules - should be formally requested by email, copying all stakeholders (focal point and team leaders of the three teams). Such changes will only be implemented after receiving approval from all teams.
+- Any changes to the process - such as updating exceptions or modifying computational rules - should be formally requested by email, copying all stakeholders (focal points and team leaders of the three teams). Such changes will be implemented only after receiving approval from all teams.
 
 
 

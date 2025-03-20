@@ -72,7 +72,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS</a></li>
+<li><a href="https://github.com/SWS-Methodology/faoswsFbsConsolidationDocumentation">FBS consolidation process</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -150,27 +150,27 @@
             <section class="normal" id="section-">
 <div id="InputOutput" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Input and output<a href="InputOutput.html#InputOutput" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The <strong>FBS consolidation process</strong> is performed using a single plugin: <em>fbs_consolidation</em>. The plugin uses several input objects to update one output datatable and two output datasets. This chapter describes these input and output objects in detail.</p>
+<p>The <strong>FBS consolidation process</strong> is performed using a single SWS plugin: <em>fbs_consolidation</em>. The plugin uses several input objects to update one output datatable and two output datasets. This chapter describes these input and output objects in detail.</p>
 <p>The plugin processes information from <strong>four input datatables</strong>:<br />
-- <em>fbs_consolidated_area_aggregates</em> in the <em>Disseminated Datasets</em> domain.<br />
-- <em>fbs_consolidated_elements</em> in the <em>Disseminated Datasets</em> domain.<br />
-- <em>fbs_consolidated_exceptions</em> in the <em>Disseminated Datasets</em> domain.<br />
-- <em>fbs_consolidated_code_mapping</em> in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_consolidated_area_aggregates</em>, available in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_consolidated_elements</em>, available in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_consolidated_exceptions</em>, available in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_consolidated_code_mapping</em>, available in the <em>Disseminated Datasets</em> domain.<br />
 </p>
 <p>Additionally, it retrieves reference information from <strong>two input codelists</strong>:<br />
 - <em>geographicAreaM49</em>.<br />
 - <em>measuredItemFbsSua</em>.<br />
 </p>
 <p>The plugin gathers input data from <strong>two input datasets</strong>:<br />
-- <em>fbs_balanced_</em> in the <em>SUA/FBS Domain</em> (CLFS team).<br />
-- <em>fi_fbs_faostat_validated</em> in the <em>Fisheries Commodities</em> domain (NFISS team).<br />
+- <em>fbs_balanced_</em>, available in the <em>SUA/FBS Domain</em> (CLFS team).<br />
+- <em>fi_fbs_faostat_validated</em>, available in the <em>Fisheries Commodities</em> domain (NFISS team).<br />
 </p>
 <p>It writes information about the plugin runs to a <strong>single output datatable</strong>:<br />
-- <em>fbs_consolidated_logs</em> in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_consolidated_logs</em>, available in the <em>Disseminated Datasets</em> domain.<br />
 </p>
 <p>Finally, it updates data into <strong>two output datasets</strong>:<br />
-- <em>fbs_consolidated</em> in the <em>Disseminated Datasets</em> domain.<br />
-- <em>fbs_sofi</em> in the <em>Food Security</em> domain.<br />
+- <em>fbs_consolidated</em>, available in the <em>Disseminated Datasets</em> domain.<br />
+- <em>fbs_sofi</em>, available in the <em>Food Security</em> domain.<br />
 </p>
 <p>The following sections describe each object in more detail.</p>
 <div id="input-datatables" class="section level2 hasAnchor" number="2.1">
@@ -204,10 +204,10 @@ The list of aggregates included in the <em>FBS Consolidated Area Aggregates</em>
 <p>One of the main objectives of the FBS consolidation process is to harmonize FBS data produced by the CLFS and the NFISS teams. The list of output elements has been agreed upon with both teams. The <em>FBS Consolidated Elements</em> datatable provides instructions on how to derive these elements from each input dataset. This may involve directly retaining the input elements without further modifications, converting values from tonnes to 1000 tonnes, or computing compound elements using defined formulas.</p>
 <p>As shown in Figure <a href="#fig:ElementsDT">2.2</a>, the datatable contains <strong>eight columns</strong>:<br />
 - <em>CLFS input description</em> and <em>CLFS input code</em>, denoting the input elements from the CLFS input dataset.<br />
-- <em>NFISS input description</em> and <em>NFISS input code</em>, denoting the input elements from the NFISS input dataset; NA indicates the element is not used by NFISS.<br />
-- <em>Multiplier</em>, specifying the conversion factor applied to input elements to derive output elements; it is set to NA when the input element is part of a formula used to compute a compound output element.<br />
-- <em>Formula</em>, providing equations for calculating compound output elements; input elements used in the same operation share the same formula.<br />
-- <em>Output description</em> and <em>Output code</em>, denoting the output elements; these may include duplicated values when multiple input elements contribute to the calculation of a single compound output element, resulting in multiple rows per output element.<br />
+- <em>NFISS input description</em> and <em>NFISS input code</em>, denoting the input elements from the NFISS input dataset. NA values indicate the corresponding elements are not used by the NFISS team.<br />
+- <em>Multiplier</em>, specifying the conversion factor applied to input elements to derive output elements. It is set to NA when the input element is part of a formula used to compute a compound output element.<br />
+- <em>Formula</em>, providing equations for calculating compound output elements. Input elements used in the same operation share the same formula.<br />
+- <em>Output description</em> and <em>Output code</em>, denoting the output elements- These may include duplicated values when multiple input elements contribute to the calculation of a single compound output element, resulting in multiple rows per output element.<br />
 </p>
 <div class="note">
 Population data is retrieved only from the CLFS input dataset.
@@ -225,7 +225,7 @@ Population data is retrieved only from the CLFS input dataset.
 - Domain id: <code>disseminated</code>.<br />
 - Datatable id: <code>fbs_consolidated_exceptions</code>.</p>
 <p>Each row in the datatable represents an exception, which can be <strong>unidimensional</strong> (e.g., all data for one element, regardless of areas, items, or years) or <strong>multidimensional</strong> (e.g., all data for a given combination of area-item-element). Exceptions are applied during two possible steps:<br />
-- <strong>Dissemination step</strong>, meaning the data is not published.<br />
+- <strong>Dissemination step</strong>, meaning data is not published.<br />
 - <strong>Aggregation step</strong>, meaning data is excluded from area or item aggregates.</p>
 <p>The most common case is for the exception to be applied in both cases. However, there are exceptions where data may be aggregated but not disseminated (or viceversa).</p>
 <div class="note">
@@ -288,7 +288,7 @@ The <em>fbs_consolidation</em> plugin is designed to be <strong>robust</strong> 
 </div>
 <div id="input-datasets" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Input datasets<a href="InputOutput.html#input-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Input data for the FBS consolidation process is provided by two input datasets, one for each of the two teams producing FBS data:<br />
+<p>Input data for the FBS consolidation process is provided by two input datasets, one for each team producing FBS data:<br />
 - The <em>Crops, Livestocks, and Food Statistics</em> (CLFS) team of the <em>Statistics division</em> (ESS).<br />
 - The <em>Fisheries and Aquaculture Statistics</em> (NFISS) team of the <em>Fisheries division</em> (NFI).</p>
 <p>The two input datasets are briefly introduced below.</p>
@@ -334,7 +334,7 @@ Since the <em>fbs_consolidation</em> plugin does not read data directly from SWS
 - It summarizes key details for each run, including the user, date and time, runtime, input and output datasets, whether the query was used, the years, and the number and codes of countries involved.<br />
 - It facilitates coordination between teams by indicating whether a plugin run is currently active or was recently completed. In this case, one team can contact the other to confirm whether the results were saved to the output dataset(s), minimizing the risk of conflicting sessions.</p>
 <div class="warning">
-Conflicts may occur when independent plugin runs have overlapping input-output operations. For example, a conflict arises if a second user reads data from the output dataset before the first user has saved their results.
+Conflicts may occur when independent plugin runs have overlapping input-output operations. For example, a conflict arises if a second user reads data from the output dataset after the first user has run the plugin but before the plugin’s results are saved to the output dataset.
 </div>
 <p>On a positive note, the SWS UI alerts you to such issues by displaying a small “C” next to the red circle in the sessions list. The downside is that the conflicting session must be aborted and re-run. This highlights the <strong>importance of maintaining a datatable to log the runs</strong> executed by each user. While this does not prevent conflicts - since the plugin’s results still need to be saved back to the dataset - it allows teams to reach out to each other to confirm whether their changes have already been saved.</p>
 <div class="tip">
@@ -344,7 +344,7 @@ Regurarly check the <em>FBS Consolidated Logs</em> datatable when using the plug
 - <em>ID</em>, a unique identifier that can be used to chronologically sort the plugin runs.<br />
 - <em>Runtime</em>, displaying the computational time that was required to complete the task. If the value is ‘-’, it means the plugin either failed or is still running.<br />
 - <em>FBS Cons Session</em> and <em>FBS SOFI Session</em>, providing the ID of the SWS sessions associated with each run. This information helps users easily retrieve the results of previous runs. If the field is blank, it means that the run did not update the corresponding output dataset.<br />
-- <em>Query</em>, indicating whether the plugin was launched considering the query.<br />
+- <em>Query</em>, indicating whether the plugin was executed considering the query.<br />
 - <em>Areas No.</em> and <em>Areas Codes</em>, respectively indicating the number of areas and the list of area codes considered for the run. This information is useful for coordination between teams.</p>
 <div class="float">
 <img src="images/fbs_consolidation_logs.png" alt=" Figure 2.5. Datatable providing detailed information on all the runs of the fbs_consolidation plugin." />
@@ -355,13 +355,13 @@ Regurarly check the <em>FBS Consolidated Logs</em> datatable when using the plug
 <div id="output-datasets" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> Output datasets<a href="InputOutput.html#output-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <em>fbs_consolidation</em> plugin updates <strong>two output datasets</strong>: <em>FBS Consolidated</em> (in the <em>Disseminated Dataset</em> domain) and <em>FBS SOFI</em> (in the <em>Food Security</em> domain).</p>
-<p><em>FBS Consolidated</em> is the dissemination dataset. It is updated ideally twice per year. <em>FBS SOFI</em> is the “live” dataset, meaning that data is updated on a rolling basis, following the deadlines for <em>The State of Food Security and Nutrition in the World</em> (SOFI) report.</p>
+<p><em>FBS Consolidated</em> is the dissemination dataset. It is updated ideally twice per year. <em>FBS SOFI</em> is the “live” dataset, meaning that data is updated on a rolling basis, following the deadlines set for <em>The State of Food Security and Nutrition in the World</em> (SOFI) report.</p>
 <p>Following a careful review, it was concluded that both output datasets should adopt the following codelists:<br />
 - Areas: <em>geographicAreaM49</em>.<br />
 - Elements: <em>measuredElementSuaFbs</em>.<br />
 - Items: <em>measuredItemFbsSua</em>.<br />
 - Years: <em>timePointYears</em>.</p>
-<p>The roots included for the <em>Areas</em> dimension are <em>World</em> [1] and <em>Economic Areas</em> [ECO]. The elements made available are 21. The item codelist is limited to the roots <em>Grand Total</em> [S2901] and <em>Additional aggregates, not elsewhere specified</em> [NES], and to <em>TOTAL POPULATION</em> [S2501]. The <em>Years</em> dimension is not restricted, but data points are available only from 2010 onwards, in line with the implementation of the new FBS methodology<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>The roots included within the <em>Areas</em> dimension are <em>World</em> [1] and <em>Economic Areas</em> [ECO]. The elements made available are 21. The item codelist is limited to the roots <em>Grand Total</em> [S2901] and <em>Additional aggregates, not elsewhere specified</em> [NES], and to <em>TOTAL POPULATION</em> [S2501]. The <em>Years</em> dimension is not restricted, but data points are available only from 2010 onwards, in line with the implementation of the new FBS methodology<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 <p>Table <a href="InputOutput.html#tab:codelists">2.1</a> summarizes the codelists used for the four dimensions in both input and output datasets.</p>
 <table>
 <caption><span id="tab:codelists">Table 2.1: </span> Codelists used for the four dimensions in the two input datasets (<em>fbs_balanced_</em> and <em>fi_fbs_faostat_validated</em>) and the two output datasets (<em>fbs_consolidated</em> and <em>fbs_sofi</em>).</caption>

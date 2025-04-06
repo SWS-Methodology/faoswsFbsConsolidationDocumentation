@@ -49,12 +49,12 @@ This quick operational guide shows how to navigate the SWS environment to run th
 
 The steps needed to run the plugin in SWS are the following.
 
-1. Open the SWS new UI.
+1. Open the SWS new UI.  
 ![](./images/fbs_guide1.png)
 1. Create a new SWS session by clicking the *New query* button. You can choose one of the following options:
-    - [Domain: Disseminated Datasets] and [Dataset: FBS Consolidated] to update the *FBS Consolidated* dataset or both output datasets.
+    - [Domain: Disseminated Datasets] and [Dataset: FBS Consolidated] to update the *FBS Consolidated* dataset or both output datasets.  
     ![](./images/fbs_guide2.png)
-    - [Domain: Food Security] and [Dataset: FBS SOFI] to update the *FBS SOFI* dataset or both output datasets.
+    - [Domain: Food Security] and [Dataset: FBS SOFI] to update the *FBS SOFI* dataset or both output datasets.  
     ![](./images/fbs_guide2bis.png)
 1. Select at least one key for each dimension. Then, click *Save as session*.
 <div class="note">
@@ -64,9 +64,9 @@ The selected key combination is relevant only if the *Limit import to query* inp
 <div class="tip">
 Using meaningful session names helps with tracking and managing your work.</div>
 ![](./images/fbs_guide4.png)
-1. Click on *Run plugin*.
+1. Click on *Run plugin*.  
 ![](./images/fbs_guide5.png)
-1. In the pop-up window, leave *Target* set to *Apply to session data* and select *fbs_consolidation* as *Plugin*. Then, click *Define params*.
+1. In the pop-up window, leave *Target* set to *Apply to session data* and select *fbs_consolidation* as *Plugin*. Then, click *Define params*.  
 ![](./images/fbs_guide6.png)
 1. Specify the first two parameters: *Secondary Dataset* 1 and 2.
 <div class="note">
@@ -78,7 +78,7 @@ Unless you need to populate simultaneously both output datasets, you can use dum
 <div class="note">
 Only *Import data* is mandatory.</div>
 ![](./images/fbs_guide8.png)
-1. Leave *Choose schedule type* set to *Immediately*, then click *Execution*. 
+1. Leave *Choose schedule type* set to *Immediately*, then click *Execution*.  
 ![](./images/fbs_guide9.png)
 1. Set *Docker speed* either to *Fast* or to *Slow* depending on the expected processing time. Then, click *Run plugin*.
 <div class="tip">

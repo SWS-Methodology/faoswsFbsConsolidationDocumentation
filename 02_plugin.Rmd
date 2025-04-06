@@ -5,7 +5,7 @@ The consolidation of FBS data is performed using the *fbs_consolidation* plugin.
 - *FBS Consolidated*, in the *Disseminated Dataset* domain.\
 - *FBS SOFI*, in the *Food Security* domain. 
 
-The plugin updates the output datasets with newly avaiable data from the input datasets. More precisely, it pulls data from the chosen input dataset, reads data from the output datasets, computes aggregates, performs other operations, and saves back the updated results. If both output datasets need to be updated simultaneously, the plugin implements two parallel data processing streams, one for each output dataset.
+The plugin updates the output datasets with newly available data from the input datasets. More precisely, it pulls data from the chosen input dataset, reads data from the output datasets, computes aggregates, performs other operations, and saves back the updated results. If both output datasets need to be updated simultaneously, the plugin implements two parallel data processing streams, one for each output dataset.
 
 <div class="note">
 Each team is responsible for executing the plugin independently for their respective data.</div>

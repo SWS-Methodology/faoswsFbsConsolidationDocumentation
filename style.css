@@ -284,3 +284,10 @@ text-decoration: none;
   color: #d73a49; 
   margin-bottom: 5px;
 }
+
+#MathJax-Element-5-Frame {
+  display: inline-block;
+  overflow-x: auto !important;
+  white-space: nowrap;
+  max-width: 100%;
+}

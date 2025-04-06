@@ -273,14 +273,14 @@ Each team is responsible for executing the plugin independently for their respec
 <p>The formula for the Domestic Supply Quantity is detailed in Section <a href="Plugin.html#CompoundElements">3.5</a>. In this case, the plugin assigns flag combination E,i.</p>
 <p>After these computation steps, the plugin applies aggregation exception rules. These rules may exclude some specific records from aggregation. The plugin then merges input data with output data, prioritizing input data in case of conflicts. The aggregation process follows a two-step sequence: area aggregation first, item aggregation second. Aggregated data is assigned flag combinations based on flag aggregation rules, with E,s being the most common.</p>
 <p>Once aggregation is complete, the plugin computes per-capita elements for all areas, including both countries and area aggregates, using CLFS population figures. The formulas used are detailed in Section <a href="Plugin.html#CompoundElements">3.5</a>, and the flag combination assigned is E,i.</p>
-<p>Finally, the plugin applies the dissemination exception rules<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Outdated carry-forward data is then removed by setting its values and flags to NA before merging it back with the processed data.</p>
+<p>Finally, the plugin applies the dissemination exception rules<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Outdated carry-forward data is then removed<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> by setting its values and flags to NA before merging it back with the processed data.</p>
 </div>
 <div id="Saving" class="section level3 hasAnchor" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> Saving procedure<a href="Plugin.html#Saving" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The final step involves saving results to the relevant session(s) of the output dataset(s). Specifically, the plugin saves to:<br />
 - The session from which it was launched.<br />
 - The selected session of the other output dataset, if <em>Update both output datasets</em> is set to <em>Yes</em> (see Section <a href="RunPlugin.html#Secondary">4.1</a> for details).</p>
-<p>Upon successful saving, the plugin generates logs documenting the saving procedure and its outcome. The run concludes by updating the corresponding entry in the <em>FBS Consolidated Logs</em> datatable to include the final computation time.</p>
+<p>Upon successful saving, the plugin generates logs documenting the saving procedure and its outcome. In case the plugin removes any observation due to outdated carry-forwarded data, the list of removed observations are sent via email to the NFISS focal point, to the plugin’s developer, and - if different from the first two - to the user who launched the plugin. The run concludes by updating the corresponding entry in the <em>FBS Consolidated Logs</em> datatable to include the final computation time.</p>
 </div>
 </div>
 <div id="WorkflowSummary" class="section level2 hasAnchor" number="3.4">
@@ -308,13 +308,14 @@ Each team is responsible for executing the plugin independently for their respec
 <li>Perform area and item aggregations.</li>
 <li>Compute per-capita elements, where applicable.</li>
 <li>Apply dissemination exception rules.</li>
-<li>Set value and flags to NA for outdated carry-forwarded data and merge these records back with the processed data.</li>
+<li>Set value and flags to NA for outdated carry-forwarded data series and merge these records back with the processed data.</li>
 <li>Save results to the session(s) of the output dataset(s).</li>
 <li>Print logs detailing the saving procedure.</li>
+<li>In case of outdated carry-forwarded data, notify users via email attaching the list of removed observations.</li>
 <li>Update the log row for the current run in the logs datatable.</li>
 </ol>
 <div class="note">
-If both output datasets are updated in the same run, steps 17 to 24 are performed separately for each of them.
+If both output datasets are updated in the same run, steps 17 to 25 are performed separately for each of them.
 </div>
 <p>Table <a href="Plugin.html#tab:flags">3.2</a> summarizes the flag combinations assigned throughout the plugin’s workflow.</p>
 <table>
@@ -375,6 +376,7 @@ If both output datasets are updated in the same run, steps 17 to 24 are performe
 <li id="fn1"><p>As per the consolidated decision jointly reached with the CLFS and NFISS teams. Both teams, however, have committed to further investigate the potential need to adjust UNPD population figures in pursuit of a unified decision.<a href="Plugin.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>This adjustment will continue until a unified definition is agreed upon. Both teams have acknowledged the importance of alignment, and the NFISS team is evaluating the feasibility of adopting the CLFS definition.<a href="Plugin.html#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>To ensure the reproducibility of aggregates in all cases, the plugin applies only dissemination exceptions that are also aggregation exceptions. Other dissemination exceptions (such as countries not disseminated but considered in aggregate computations) are applied outside of SWS.<a href="Plugin.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>If the plugin identifies an outdated carry-forward data point, it removes the whole series with E,t flag combination starting with that data point (for the affected area-element-item combination). <em>Removing</em> means that values and flags are set to NA in the sessions where the plugin saves its results. Changes to the database are made effective only upon saving the sessions to the dataset.<a href="Plugin.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

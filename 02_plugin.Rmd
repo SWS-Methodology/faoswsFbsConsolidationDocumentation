@@ -127,7 +127,7 @@ After these computation steps, the plugin applies aggregation exception rules. T
 
 Once aggregation is complete, the plugin computes per-capita elements for all areas, including both countries and area aggregates, using CLFS population figures. The formulas used are detailed in Section \@ref(CompoundElements), and the flag combination assigned is E,i.
 
-Finally, the plugin applies the dissemination exception rules^[To ensure the reproducibility of aggregates in all cases, the plugin applies only dissemination exceptions that are also aggregation exceptions. Other dissemination exceptions (such as countries not disseminated but considered in aggregate computations) are applied outside of SWS.]. Outdated carry-forward data is then removed by setting its values and flags to NA before merging it back with the processed data.
+Finally, the plugin applies the dissemination exception rules^[To ensure the reproducibility of aggregates in all cases, the plugin applies only dissemination exceptions that are also aggregation exceptions. Other dissemination exceptions (such as countries not disseminated but considered in aggregate computations) are applied outside of SWS.]. Outdated carry-forward data is then removed^[If the plugin identifies an outdated carry-forward data point, it removes the whole series with E,t flag combination starting with that data point (for the affected area-element-item combination). *Removing* means that values and flags are set to NA in the sessions where the plugin saves its results. Changes to the database are made effective only upon saving the sessions to the dataset.] by setting its values and flags to NA before merging it back with the processed data.
 
 
 ### Saving procedure {#Saving}
@@ -136,7 +136,7 @@ The final step involves saving results to the relevant session(s) of the output 
 - The session from which it was launched.\
 - The selected session of the other output dataset, if *Update both output datasets* is set to *Yes* (see Section \@ref(Secondary) for details).
 
-Upon successful saving, the plugin generates logs documenting the saving procedure and its outcome. The run concludes by updating the corresponding entry in the *FBS Consolidated Logs* datatable to include the final computation time.
+Upon successful saving, the plugin generates logs documenting the saving procedure and its outcome. In case the plugin removes any observation due to outdated carry-forwarded data, the list of removed observations are sent via email to the NFISS focal point, to the plugin's developer, and - if different from the first two - to the user who launched the plugin. The run concludes by updating the corresponding entry in the *FBS Consolidated Logs* datatable to include the final computation time.
 
 
 
@@ -165,13 +165,14 @@ The workflow of the *fbs_consolidation* plugin can be summarized in the followin
 1. Perform area and item aggregations.
 1. Compute per-capita elements, where applicable.
 1. Apply dissemination exception rules.
-1. Set value and flags to NA for outdated carry-forwarded data and merge these records back with the processed data.
+1. Set value and flags to NA for outdated carry-forwarded data series and merge these records back with the processed data.
 1. Save results to the session(s) of the output dataset(s). 
 1. Print logs detailing the saving procedure.
+1. In case of outdated carry-forwarded data, notify users via email attaching the list of removed observations. 
 1. Update the log row for the current run in the logs datatable.
 
 <div class="note">
-If both output datasets are updated in the same run, steps 17 to 24 are performed separately for each of them.</div>
+If both output datasets are updated in the same run, steps 17 to 25 are performed separately for each of them.</div>
 
 Table \@ref(tab:flags) summarizes the flag combinations assigned throughout the plugin's workflow. 
 
